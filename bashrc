@@ -37,6 +37,9 @@ alias ll='ls -lh --si'
 alias em='emacs'
 alias emn='emacs -nw'
 
+alias root='root -l'
+alias ls_full='ls -d $(pwd -P)/*'
+
 
 # ssh shortcuts
 ####################################################
