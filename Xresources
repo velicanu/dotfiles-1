@@ -1,0 +1,27 @@
+!emacs 
+Emacs*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15
+Emacs*Background: black
+Emacs*Foreground: grey90
+Emacs.toolBar: off
+Emacs.menuBar: off
+
+emacs*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15
+emacs*Background: black
+emacs*Foreground: grey90
+emacs.toolBar: off
+emacs.menuBar: off
+
+
+
+!xterm family of applications
+xterm*font: -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso8859-15
+xterm*background: black
+xterm*foreground: grey90
+
+!fontconfig stuff
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb

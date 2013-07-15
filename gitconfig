@@ -1,0 +1,8 @@
+[user]
+	name = R. Alex Barbieri
+	email = luck@mit.edu
+	github = richard-cms
+[core]
+	editor = emacs
+[color]
+	ui = true
