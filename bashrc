@@ -39,6 +39,7 @@ alias emn='emacs -nw'
 
 alias root='root -l'
 alias ls_full='ls -d $(pwd -P)/*'
+alias pwd='pwd -P'
 
 
 # ssh shortcuts
@@ -46,7 +47,8 @@ alias ls_full='ls -d $(pwd -P)/*'
 alias svmit='ssh -Xt richard@lxplus.cern.ch "ssh -X svmithi01"'
 alias lxplus='ssh -X richard@lxplus5.cern.ch'
 alias cgate='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X hidsk0001"'
-alias higmini5='ssh -X 198.125.160.54'
+#alias higmini5='ssh -X 198.125.160.54'
+alias higmini5='mosh higmini5.lns.mit.edu'
 
 #alias pie='ssh -x 192.168.1.6 -p 51001'
 #alias moxie='ssh -x moxie.no-ip.org -p 51001'
