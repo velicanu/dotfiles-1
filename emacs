@@ -62,19 +62,18 @@
     current line."
   (interactive)
   (if (minibufferp)
-      (unless (minibuffer-complete)
-        (dabbrev-expand nil))
-    (if mark-active
-        (indent-region (region-beginning)
-                       (region-end))
-      (if (looking-at "\\_>")
-          (dabbrev-expand nil)
-        (indent-for-tab-command)))))
+      (minibuffer-complete)
+  (if mark-active
+      (indent-region (region-beginning)
+		     (region-end))
+    (if (looking-at "\\_>")
+	(dabbrev-expand nil)
+      (indent-for-tab-command)))))
 
 ;;double hop for cgate
-(require 'tramp)
-(add-to-list 'tramp-default-proxies-alist
-	     (list "hidsk0001" nil "/ssh:luck@portal.cmsaf.mit.edu:"))
+;;(require 'tramp)
+;;(add-to-list 'tramp-default-proxies-alist
+;;	     (list "hidsk0001" nil "/ssh:luck@portal.cmsaf.mit.edu:"))
 
 (put 'upcase-region 'disabled nil)
 
