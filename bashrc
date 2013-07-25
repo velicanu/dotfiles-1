@@ -74,5 +74,5 @@ alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -
 function rootcompile()
 {
     local NAME=$1
-    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/.bin}"
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/}.out"
 }
