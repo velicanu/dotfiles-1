@@ -37,7 +37,7 @@ alias ll='ls -lh --si'
 alias em='emacs'
 alias emn='emacs -nw'
 
-alias root='root -l'
+alias root='root -l -x'
 alias ls_full='ls -d $(pwd -P)/*'
 alias pwd='pwd -P'
 
