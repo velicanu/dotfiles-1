@@ -67,3 +67,12 @@ alias emlxplus='emacs /ssh:richard@lxplus5.cern.ch:~/'
 alias cms904tunnel='ssh -t richard@lxplus.cern.ch -L 1080:localhost:1085 "ssh -ND 1085 richard@cms904usr"'
 alias emcms='emacs "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'
 alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -X l1ts-rct-02 \""'
+
+
+# root compilation helper function
+##################################
+function rootcompile()
+{
+    local NAME=$1
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/.bin}"
+}
