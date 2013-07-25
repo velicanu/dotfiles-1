@@ -14,6 +14,7 @@ else
 fi
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 # backup scripts
 ###################################################
