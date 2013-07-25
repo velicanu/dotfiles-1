@@ -48,6 +48,10 @@
 ;;default to ssh+scp for tramp mode
 (setq tramp-default-method "ssh")
 
+;; use the remote PATH info instead of tramp's default
+(require 'tramp)
+(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
 ;;no tool bars, scroll bars, or menubars
 ;;(tool-bar-mode -1)
 ;;(menu-bar-mode -1)
