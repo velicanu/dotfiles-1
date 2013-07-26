@@ -8,9 +8,7 @@
  '(initial-scratch-message "")
  '(mouse-scroll-delay 0.5)
  '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control)))))
- '(scroll-bar-mode (quote left))
- '(tool-bar-mode nil))
+ '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control))))))
 
 ;;auxtex settings
 (eval-after-load "tex-mode" '(progn
@@ -48,10 +46,6 @@
 ;;default to ssh+scp for tramp mode
 (setq tramp-default-method "ssh")
 
-;; use the remote PATH info instead of tramp's default
-(require 'tramp)
-(add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-
 ;;no tool bars, scroll bars, or menubars
 ;;(tool-bar-mode -1)
 ;;(menu-bar-mode -1)
@@ -74,11 +68,6 @@
 	(dabbrev-expand nil)
       (indent-for-tab-command)))))
 
-;;double hop for cgate
-;;(require 'tramp)
-;;(add-to-list 'tramp-default-proxies-alist
-;;	     (list "hidsk0001" nil "/ssh:luck@portal.cmsaf.mit.edu:"))
-
 (put 'upcase-region 'disabled nil)
 
 ;; open with mouse in dired
@@ -94,3 +83,11 @@
           (filename &optional wildcards)
           (find-file filename wildcards)))
     (dired-mouse-find-file-other-window event)))
+
+(show-paren-mode 1) ; turn on paren match highlighting
+;;(setq show-paren-style 'expression) ; highlight entire bracket expression
+
+(delete-selection-mode 1) ; delete seleted text when typing
+(global-linum-mode 1) ; display line numbers in margin.
+
+
