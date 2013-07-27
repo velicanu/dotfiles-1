@@ -88,6 +88,8 @@
 ;;(setq show-paren-style 'expression) ; highlight entire bracket expression
 
 (delete-selection-mode 1) ; delete seleted text when typing
-(global-linum-mode 1) ; display line numbers in margin.
+
+(if (>= emacs-major-version 21)
+    (global-linum-mode 1)) ; display line numbers in margin.
 
 (global-set-key (kbd "C-z") 'undo)
