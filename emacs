@@ -29,8 +29,11 @@
 ;; do not make backup files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-;; put the filename in the windowmanager titlebar, or use buffer name otherwise
+
+;; put the filename in the windowmanager titlebar, or use buffer name
+;; otherwise
 (setq frame-title-format "%b - emacs")
+
 ;; fix the freaking c-style
 (setq c-default-style "bsd" 
       c-basic-offset 2)
@@ -43,13 +46,8 @@
 (require 'cc-mode)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 
-;;default to ssh+scp for tramp mode
+;;default to ssh alone for tramp mode
 (setq tramp-default-method "ssh")
-
-;;no tool bars, scroll bars, or menubars
-;;(tool-bar-mode -1)
-;;(menu-bar-mode -1)
-;;(scroll-bar-mode -1)
 
 ;; tab completion!
 (global-set-key [(tab)] 'smart-tab)
@@ -68,8 +66,6 @@
 	(dabbrev-expand nil)
       (indent-for-tab-command)))))
 
-(put 'upcase-region 'disabled nil)
-
 ;; open with mouse in dired
 (add-hook 'dired-mode-hook 'my-dired-mode-hook)
 (defun my-dired-mode-hook ()
@@ -84,12 +80,23 @@
           (find-file filename wildcards)))
     (dired-mouse-find-file-other-window event)))
 
-(show-paren-mode 1) ; turn on paren match highlighting
-;;(setq show-paren-style 'expression) ; highlight entire bracket expression
+;; turn on paren match highlighting
+(show-paren-mode 1)
+;; highlight entire bracket expression
+;;(setq show-paren-style 'expression)
 
-(delete-selection-mode 1) ; delete seleted text when typing
+;; delete seleted text when typing
+(delete-selection-mode 1)
 
+;; display line numbers in margin.
 (if (>= emacs-major-version 23)
-    (global-linum-mode 1)) ; display line numbers in margin.
+    (global-linum-mode 1)) 
 
+;; use the CUA undo key. Disables suspend in terminal however...
 (global-set-key (kbd "C-z") 'undo)
+
+;; add ergoemacs bindings for cursor movement
+(global-set-key (kbd "M-j") 'backward-char)
+(global-set-key (kbd "M-i") 'previous-line)
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "M-l") 'forward-char)
