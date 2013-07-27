@@ -89,7 +89,7 @@
 
 (delete-selection-mode 1) ; delete seleted text when typing
 
-(if (>= emacs-major-version 21)
+(if (>= emacs-major-version 23)
     (global-linum-mode 1)) ; display line numbers in margin.
 
 (global-set-key (kbd "C-z") 'undo)
