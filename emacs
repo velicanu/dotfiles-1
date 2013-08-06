@@ -10,6 +10,9 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control))))))
 
+(if (< emacs-major-version 23)
+    (global-font-lock-mode 1)) 
+
 ;;auxtex settings
 (eval-after-load "tex-mode" '(progn
 (load "auctex.el" nil nil t)
