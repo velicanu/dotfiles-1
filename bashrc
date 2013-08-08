@@ -11,7 +11,7 @@ get_CMSSW_version (){
     if [ $CMSSW_BASE ] ; then
 	local OUTPUT=$(basename $CMSSW_BASE)
 	OUTPUT=$(echo $OUTPUT | sed "s/CMSSW_//g")
-	echo "($OUTPUT)"
+	echo "\[\033[00;35m\]($OUTPUT)"
     else
 	echo ""
     fi
@@ -20,7 +20,7 @@ get_CMSSW_version (){
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h$(get_CMSSW_version)\[\033[01;34m\] \W \$\[\033[00m\] '
 fi
 
 # utility aliases
