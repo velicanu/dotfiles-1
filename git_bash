@@ -1,3 +1,6 @@
+# git_bash
+# set of functions to print git info in PS1. 
+# copied from:
 # Sexy bash prompt by twolfson
 # https://github.com/twolfson/sexy-bash-prompt
 
