@@ -10,10 +10,11 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control))))))
 
+;; Turn on syntax highlight for old emacs versions
 (if (< emacs-major-version 23)
     (global-font-lock-mode 1)) 
 
-;;auxtex settings
+;;auxtex settings, for writing LaTex with emacs
 (eval-after-load "tex-mode" '(progn
 (load "auctex.el" nil nil t)
 (load "preview-latex.el" nil nil t))) 
@@ -24,12 +25,12 @@
 (setq TeX-view-program-selection 
       '((output-pdf "Okular") (output-dvi "Okular")))
 
-;; make kill/yank behave like copy/paste
+;; make kill/yank behave like copy/paste, using the clipboard
 (global-set-key "\C-w" 'clipboard-kill-region)
 (global-set-key "\M-w" 'clipboard-kill-ring-save)
 (global-set-key "\C-y" 'clipboard-yank)
 
-;; do not make backup files
+;; do not make backup files ending with ~ or #
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
@@ -37,15 +38,15 @@
 ;; otherwise
 (setq frame-title-format "%b - emacs")
 
-;; fix the freaking c-style
+;; Two real spaces for offsets in c code
 (setq c-default-style "bsd" 
       c-basic-offset 2)
 
-;;in text mode use visual line mode
+;; In text mode use visual line mode (good wrapping)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 ;;(add-hook 'text-mode-hook 'flyspell-mode)
 
-;;newline and indent
+;;newline and indent when hitting return in c mode
 (require 'cc-mode)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 

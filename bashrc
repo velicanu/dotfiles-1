@@ -1,12 +1,15 @@
 #.bashrc
+# If the local folder 'bin' exists put it in my path
 [ -d ~/bin ] && export PATH="$PATH:~/bin"
 
+# Use emacs for editor
 export EDITOR=emacs
 export VISUAL=emacs
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # PS1
 ##################################################
+source ~/.dotfiles/bash_git_prompt
+
 get_CMSSW_version (){
     if [ $CMSSW_BASE ] ; then
 	local OUTPUT=$(basename $CMSSW_BASE)
@@ -20,7 +23,7 @@ get_CMSSW_version (){
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W $(get_git_status)\$\[\033[00m\] '
 fi
 
 # utility aliases
@@ -47,20 +50,6 @@ function rootcompile()
     g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/}.exe"
 }
 
-# backup scripts
-###################################################
-alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
-alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
-
-alias fox_local_backup='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ 192.168.1.6:/mnt/drive/Pictures/Fox/'
-alias fox_remote_backup='rsync -tvrumhk --chmod=o-rwx --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/Fox/'
-
-alias music_to_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.6:/mnt/drive/Music/'
-alias music_from_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" 192.168.1.6:/mnt/drive/Music/  /home/alex/Music/'
-
-alias music_to_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
-alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
-
 # ssh shortcuts
 ####################################################
 alias svmit='ssh -Xt richard@lxplus.cern.ch "ssh -X svmithi01"'
@@ -82,4 +71,22 @@ alias cms904tunnel='ssh -t richard@lxplus.cern.ch -L 1080:localhost:1085 "ssh -N
 alias emcms='emacs "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'
 alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -X l1ts-rct-02 \""'
 
+# Things not useful for work
+#############################################
 
+# Make openjdk have pretty fonts
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+# backup scripts
+###################################################
+alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
+alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
+
+alias fox_local_backup='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ 192.168.1.6:/mnt/drive/Pictures/Fox/'
+alias fox_remote_backup='rsync -tvrumhk --chmod=o-rwx --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/Fox/'
+
+alias music_to_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.6:/mnt/drive/Music/'
+alias music_from_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" 192.168.1.6:/mnt/drive/Music/  /home/alex/Music/'
+
+alias music_to_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
+alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
