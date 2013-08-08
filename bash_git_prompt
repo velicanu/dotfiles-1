@@ -1,7 +1,7 @@
 function get_git_branch() {
   # On branches, this will return the branch name
   # On non-branches, (no branch)
-  git symbolic-ref HEAD --short 2> /dev/null || echo "(no branch)"
+  git symbolic-ref HEAD --short 2> /dev/null || echo ""
 }
 
 function is_branch1_behind_branch2 () {
