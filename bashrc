@@ -8,15 +8,19 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 # PS1
 ##################################################
 get_CMSSW_version (){
-    local OUTPUT=$(basename $CMSSW_BASE)
-    OUTPUT=$(echo $OUTPUT | sed "s/CMSSW_//g")
-    echo $OUTPUT
+    if [ $CMSSW_BASE ] ; then
+	local OUTPUT=$(basename $CMSSW_BASE)
+	OUTPUT=$(echo $OUTPUT | sed "s/CMSSW_//g")
+	echo "($OUTPUT)"
+    else
+	echo ""
+    fi
 }
 
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-    PS1='\[\033[01;32m\]\h\[\033[00;35m\]($(get_CMSSW_version))\[\033[01;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W \$\[\033[00m\] '
 fi
 
 # utility aliases
