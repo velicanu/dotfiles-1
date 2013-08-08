@@ -5,16 +5,43 @@ export EDITOR=emacs
 export VISUAL=emacs
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
-# PS1 and colors
+# PS1
 ##################################################
+get_CMSSW_version (){
+    local OUTPUT=$(basename $CMSSW_BASE)
+    OUTPUT=$(echo $OUTPUT | sed "s/CMSSW_//g")
+    echo $OUTPUT
+}
+
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-    PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[00;35m\]($(get_CMSSW_version))\[\033[01;34m\] \W \$\[\033[00m\] '
 fi
+
+# utility aliases
+######################################################
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+alias la='ls -Ah --si'
+alias ll='ls -lh --si'
+
+alias em='emacs'
+alias emn='emacs -nw'
+
+alias root='root -l -x'
+alias ls_full='ls -d $(pwd -P)/*'
+alias pwd='pwd -P'
+
+# root compilation helper function
+##################################
+function rootcompile()
+{
+    local NAME=$1
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/}.exe"
+}
 
 # backup scripts
 ###################################################
@@ -32,20 +59,6 @@ alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.
 
 alias music_to_hig='rsync -tvrumhk --delete /home/alex/Music/ higmini5.lns.mit.edu:/srv/subsonic/Music/'
 alias music_from_hig='rsync -tvrumhk --delete higmini5.lns.mit.edu:/srv/subsonic/Music/  /home/alex/Music/'
-
-
-# utility aliases
-######################################################
-alias la='ls -Ah --si'
-alias ll='ls -lh --si'
-
-alias em='emacs'
-alias emn='emacs -nw'
-
-alias root='root -l -x'
-alias ls_full='ls -d $(pwd -P)/*'
-alias pwd='pwd -P'
-
 
 # ssh shortcuts
 ####################################################
@@ -69,10 +82,3 @@ alias emcms='emacs "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/
 alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -X l1ts-rct-02 \""'
 
 
-# root compilation helper function
-##################################
-function rootcompile()
-{
-    local NAME=$1
-    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/}.exe"
-}
