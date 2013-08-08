@@ -1,3 +1,6 @@
+# Sexy bash prompt by twolfson
+# https://github.com/twolfson/sexy-bash-prompt
+
 function get_git_branch() {
   # On branches, this will return the branch name
   # On non-branches, (no branch)
