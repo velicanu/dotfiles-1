@@ -23,7 +23,7 @@ get_CMSSW_version (){
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W $(get_git_status)\$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[00;35m\]$(get_CMSSW_version)\[\033[01;34m\] \W \[\033[00;35m\]$(get_git_info)\[\033[01;34m\]\$\[\033[00m\] '
 fi
 
 # utility aliases
