@@ -57,9 +57,6 @@ alias music_from_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" 192.168.1.6:/m
 alias music_to_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
 alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
 
-alias music_to_hig='rsync -tvrumhk --delete /home/alex/Music/ higmini5.lns.mit.edu:/srv/subsonic/Music/'
-alias music_from_hig='rsync -tvrumhk --delete higmini5.lns.mit.edu:/srv/subsonic/Music/  /home/alex/Music/'
-
 # ssh shortcuts
 ####################################################
 alias svmit='ssh -Xt richard@lxplus.cern.ch "ssh -X svmithi01"'
