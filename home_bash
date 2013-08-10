@@ -6,10 +6,10 @@
 #alias higmini5='ssh -X 198.125.160.54'
 alias higmini5='mosh higmini5.lns.mit.edu'
 
-#alias pie='ssh -x 192.168.1.6 -p 51001'
-#alias moxie='ssh -x moxie.no-ip.org -p 51001'
-alias pie='mosh --ssh="ssh -p 51001" --port 51002 192.168.1.6'
-alias moxie='mosh --ssh="ssh -p 51001" --port 51002 moxie.no-ip.org'
+alias pie='ssh -x 192.168.1.6 -p 51001'
+alias moxie='ssh -x moxie.no-ip.org -p 51001'
+#alias pie='mosh --ssh="ssh -p 51001" --port 51002 192.168.1.6'
+#alias moxie='mosh --ssh="ssh -p 51001" --port 51002 moxie.no-ip.org'
 alias moxie_tunnel='ssh -p 51001 moxie.no-ip.org -L 2000:localhost:8080 -N'
 
 
