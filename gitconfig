@@ -3,7 +3,7 @@
 	email = luck@mit.edu
 	github = richard-cms
 [core]
-	editor = emacs
+	editor = "emacs -nw"
 [color]
 	ui = true
 
