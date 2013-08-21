@@ -93,8 +93,8 @@
 (delete-selection-mode 1)
 
 ;; display line numbers in margin.
-(if (>= emacs-major-version 23)
-    (global-linum-mode 1)) 
+;(if (>= emacs-major-version 23)
+;    (global-linum-mode 1)) 
 
 ;; use the CUA undo key. Disables suspend in terminal however...
 (global-set-key (kbd "C-z") 'undo)
