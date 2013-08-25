@@ -32,3 +32,6 @@ alias music_from_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" 192.168.1.6:/m
 
 alias music_to_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
 alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
+
+alias mount_drive='cryptsetup luksOpen /dev/sdb2 cryptroot && mount /dev/mapper/cryptroot /mnt && mount /dev/sdb1 /mnt/boot && mount /dev/sdb3 /mnt/mnt/data'
+alias umount_drive='umount /mnt/mnt/data && umount /mnt/boot && umount /mnt &&cryptsetup luksClose /dev/mapper/cryptroot'
