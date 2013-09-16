@@ -66,7 +66,7 @@ void rootlogon()
   //gStyle->SetPadRightMargin(0.12);
   gStyle->SetPadRightMargin(0.05);
 
-#  // for tlegend
+  // for tlegend
   gStyle->SetLegendBorderSize(0);
   gStyle->SetTextSize(0.02);
   
