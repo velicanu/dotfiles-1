@@ -28,6 +28,12 @@ function rootcompile()
     g++ $NAME $(root-config --cflags --libs) -Werror -Wall -O2 -o "${NAME/%.C/}.exe"
 }
 
+function rootcompileg()
+{
+    local NAME=$1
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -g -o "${NAME/%.C/}.exe"
+}
+
 
 # ssh shortcuts
 #####################################
