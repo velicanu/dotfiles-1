@@ -21,6 +21,7 @@
 
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode) 
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (setq TeX-view-program-list '(("Okular" ("okular --unique %o" (mode-io-correlate "#src:%n%b")))))
 (setq TeX-view-program-selection 
       '((output-pdf "Okular") (output-dvi "Okular")))
