@@ -3,7 +3,7 @@
 
 # ssh shortcuts
 ####################################################
-alias higmini5='ssh -X 198.125.160.54'
+alias higmini5='ssh 198.125.160.54'
 #alias higmini5='mosh higmini5.lns.mit.edu'
 
 alias pie='ssh -x 192.168.1.6 -p 51001'
