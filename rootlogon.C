@@ -20,14 +20,14 @@ void rootlogon()
   //gStyle->SetTextFont(62);
   gStyle->SetTextFont(43);
   //gStyle->SetTextSize(0.02);
-  gStyle->SetTextSize(15);
+  gStyle->SetTextSize(18);
   
   // gStyle->SetLabelFont(42,"XYZ");
   // gStyle->SetTitleFont(42,"XYZ");
   gStyle->SetLabelFont(43,"XYZ");
-  gStyle->SetLabelSize(15,"XYZ");
+  gStyle->SetLabelSize(18,"XYZ");
   gStyle->SetTitleFont(43,"XYZ");
-  gStyle->SetTitleSize(15,"XYZ");
+  gStyle->SetTitleSize(18,"XYZ");
 
   gStyle->SetTitleColor(1,"XYZ");
 
@@ -63,14 +63,14 @@ void rootlogon()
   gStyle->SetPadLeftMargin(0.15);
   //gStyle->SetPadLeftMargin(0.3);
   gStyle->SetPadBottomMargin(0.15);
-  //gStyle->SetPadTopMargin(0.05);
-  gStyle->SetPadTopMargin(0.10);
+  gStyle->SetPadTopMargin(0.05);
+  //gStyle->SetPadTopMargin(0.10);
   //gStyle->SetPadRightMargin(0.12);
   gStyle->SetPadRightMargin(0.05);
 
   gStyle->SetLegendBorderSize(0);
   gStyle->SetLegendFillColor(0);
-  //gStyle->SetLegendFont(43);
+  gStyle->SetLegendFont(43);
   
   gROOT->ForceStyle();
 }
