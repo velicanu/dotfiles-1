@@ -1,5 +1,6 @@
 # home_bash
 # useful shortcuts for use with my home machines
+alias xo='xdg-open'
 
 # ssh shortcuts
 ####################################################
