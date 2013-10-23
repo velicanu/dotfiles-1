@@ -1,7 +1,7 @@
 void rootlogon()
 {
-  //gSystem->Load("libFWCoreFWLite.so");
-  //AutoLibraryLoader::enable();
+  gSystem->Load("libFWCoreFWLite.so");
+  AutoLibraryLoader::enable();
   //gInterpreter->ExecuteMacro("~/MITStyle.C");
 
   gStyle->SetErrorX(0);
