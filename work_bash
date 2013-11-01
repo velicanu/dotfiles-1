@@ -34,6 +34,16 @@ function rootcompileg()
     g++ $NAME $(root-config --cflags --libs) -Werror -Wall -g -o "${NAME/%.C/}.exe"
 }
 
+# image conversion functions for pdf -> gif
+####################################################
+function pdftogif()
+{
+    local NAME=$1
+    pdfcrop $NAME "${NAME/%.pdf/_temp.pdf}"
+    convert -density 300 -trim "${NAME/%.pdf/_temp.pdf}" "${NAME/%.pdf/.gif}"
+    rm "${NAME/%.pdf/_temp.pdf}"
+}
+
 
 # ssh shortcuts
 #####################################
