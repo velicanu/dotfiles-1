@@ -11,7 +11,11 @@ function get_git_branch() {
 }
 
 function get_remote_branch() {
-  git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+  #git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
+  LOCAL_BRANCH="$(git name-rev --name-only HEAD)"
+  TRACKING_BRANCH="$(git config branch.$LOCAL_BRANCH.merge)"
+  TRACKING_REMOTE="$(git config branch.$LOCAL_BRANCH.remote)"
+  echo "${TRACKING_REMOTE}/$(basename $TRACKING_BRANCH)"
 }
 
 function is_branch1_behind_branch2 () {
