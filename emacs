@@ -14,6 +14,8 @@
 (if (< emacs-major-version 23)
     (global-font-lock-mode 1)) 
 
+(add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+
 ;;auxtex settings, for writing LaTex with emacs
 (eval-after-load "tex-mode" '(progn
 (load "auctex.el" nil nil t)
