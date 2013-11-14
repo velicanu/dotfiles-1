@@ -5,10 +5,8 @@
 # get the CMSSW version for use in the PS1
 #############################################
 function get_CMSSW_version (){
-    if [ $CMSSW_BASE ] ; then
-	local OUTPUT=$(basename $CMSSW_BASE)
-	OUTPUT=$(echo $OUTPUT | sed "s/CMSSW_//g")
-	echo "($OUTPUT)"
+    if [ $CMSSW_VERSION ] ; then
+	echo $CMSSW_VERSION
     else
 	echo ""
     fi
@@ -39,8 +37,8 @@ function rootcompileg()
 function pdftogif()
 {
     local NAME=$1
-    pdfcrop $NAME "${NAME/%.pdf/_temp.pdf}"
-    convert -density 300 -trim "${NAME/%.pdf/_temp.pdf}" "${NAME/%.pdf/.gif}"
+    pdfcrop $NAME "${NAME/%.pdf/}_temp.pdf"
+    convert -density 300 -trim "${NAME/%.pdf/}_temp.pdf" "${NAME/%.pdf/}.gif"
     rm "${NAME/%.pdf/_temp.pdf}"
 }
 
