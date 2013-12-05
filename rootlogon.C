@@ -69,8 +69,8 @@ void rootlogon()
   gStyle->SetPadRightMargin(0.05);
 
   gStyle->SetLegendBorderSize(0);
-  gStyle->SetLegendFillColor(0);
-  gStyle->SetLegendFont(43);
+  //gStyle->SetLegendFillColor(0);
+  //gStyle->SetLegendFont(43);
   
   gROOT->ForceStyle();
 }
