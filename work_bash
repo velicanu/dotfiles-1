@@ -6,7 +6,7 @@
 #############################################
 function get_CMSSW_version (){
     if [ $CMSSW_VERSION ] ; then
-	echo $CMSSW_VERSION
+	echo " (${CMSSW_VERSION/CMSSW_/})"
     else
 	echo ""
     fi
