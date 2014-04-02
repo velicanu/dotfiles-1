@@ -17,6 +17,7 @@ function get_CMSSW_version (){
 alias root='root -l -x'
 alias ls_full='ls -d $(pwd -P)/*'
 alias pwd='pwd -P'
+alias scramg='scram b USER_CXXFLAGS="-g" -j20'
 
 # root compilation helper function
 ##################################
