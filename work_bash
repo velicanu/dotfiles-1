@@ -51,6 +51,7 @@ alias svmit2='ssh -Xt richard@lxplus.cern.ch "ssh -X svmithi02"'
 alias lxplus='ssh -X richard@lxplus.cern.ch'
 alias lxplus5='ssh -X richard@lxplus5.cern.ch'
 alias cgate='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X hidsk0001"'
+alias cgate6='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X t2bat0100"'
 alias hibat='ssh -Xt luck@cgate.mit.edu "ssh -X hibat0003"'
 
 alias emcgate='emacs "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"'
