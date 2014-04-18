@@ -1,5 +1,5 @@
-#Rint.Logon: $(HOME)/.dotfiles/rootlogon.C
-Rint.Logon: rootlogon.C
+Rint.Logon: $(HOME)/.dotfiles/rootlogon.C
+#Rint.Logon: rootlogon.C
 
 Unix.*.Editor: emacs -nw
 Canvas.UseScreenFactor: true

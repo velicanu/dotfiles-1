@@ -1,9 +1,16 @@
+void setStyle();
+void rootlogon();
+
 void rootlogon()
 {
-  //gSystem->Load("libFWCoreFWLite.so");
-  //AutoLibraryLoader::enable();
+  gSystem->Load("libFWCoreFWLite.so");
+  AutoLibraryLoader::enable();
   //gInterpreter->ExecuteMacro("~/MITStyle.C");
+  setStyle();
+}
 
+void setStyle()
+{
   gStyle->SetErrorX(0);
   gStyle->SetPalette(1,0);
   gStyle->SetPadColor(0);
