@@ -24,13 +24,13 @@ alias scramg='scram b USER_CXXFLAGS="-g" -j20'
 function rootcompile()
 {
     local NAME=$1
-    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -Wextra -Wpedantic -O2 -o "${NAME/%.C/}.exe"
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -Wextra -O2 -o "${NAME/%.C/}.exe"
 }
 
 function rootcompileg()
 {
     local NAME=$1
-    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -Wextra -Wpedantic -g -o "${NAME/%.C/}.exe"
+    g++ $NAME $(root-config --cflags --libs) -Werror -Wall -Wextra -g -o "${NAME/%.C/}.exe"
 }
 
 # image conversion functions for pdf -> gif
