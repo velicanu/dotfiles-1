@@ -1,5 +1,5 @@
 # git_bash
-# set of functions to print git info in PS1. 
+# set of functions to print git info in PS1.
 # copied from:
 # Sexy bash prompt by twolfson
 # https://github.com/twolfson/sexy-bash-prompt
@@ -40,7 +40,7 @@ function parse_git_ahead () {
 
     # If the remote branch is behind the local branch
     # or it has not been merged into origin (remote branch doesn't exist)
-    if (! branch_exists "$REMOTE_BRANCH" || 
+    if (! branch_exists "$REMOTE_BRANCH" ||
 	    is_branch1_behind_branch2 "$REMOTE_BRANCH" "$BRANCH"); then
 	# echo our character
 	echo 1
@@ -53,7 +53,7 @@ function parse_git_behind () {
     REMOTE_BRANCH="$(get_remote_branch)"
 
     # If the local branch is behind the remote branch
-    if (branch_exists "$REMOTE_BRANCH" && 
+    if (branch_exists "$REMOTE_BRANCH" &&
 	    is_branch1_behind_branch2 "$BRANCH" "$REMOTE_BRANCH"); then
 	# echo our character
 	echo 1
@@ -88,7 +88,7 @@ function get_git_status() {
     elif [[ $BRANCH_BEHIND == 1 ]]; then
 	echo "▽"
     elif [[ $DIRTY_BRANCH == 1 ]]; then
-	echo "*"
+	echo "★"
     fi
 }
 
@@ -108,4 +108,3 @@ function get_git_info () {
 	echo $OUTPUT
     fi
 }
-
