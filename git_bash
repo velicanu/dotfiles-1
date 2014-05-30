@@ -7,13 +7,18 @@
 function get_git_branch() {
     # On branches, this will return the branch name
     # On non-branches, (no branch)
-    git symbolic-ref HEAD --short 2> /dev/null || echo ""
+    ref="$(git symbolic-ref HEAD 2> /dev/null | sed -e 's/refs\/heads\///')"
+    if [[ "$ref" != "" ]]; then
+	echo "$ref"
+    else
+	echo ""
+    fi
 }
 
 function get_remote_branch() {
     #git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)
     LOCAL_BRANCH="$(get_git_branch)"
-    TRACKING_BRANCH="$(git config branch.$LOCAL_BRANCH.merge)"
+    TRACKING_BRANCH="$(git config branch.${LOCAL_BRANCH}.merge)"
     if [[ $TRACKING_BRANCH != "" ]]; then
 	TRACKING_REMOTE="$(git config branch.$LOCAL_BRANCH.remote)"
 	echo "${TRACKING_REMOTE}/$(basename $TRACKING_BRANCH)"
@@ -25,7 +30,7 @@ function is_branch1_behind_branch2 () {
     FIRST_LOG="$(git log $1..$2 -1 2> /dev/null)"
 
     # Exit with 0 if there is a first log, 1 if there is not
-    [[ -n $FIRST_LOG ]]
+    [[ -n "$FIRST_LOG" ]]
 }
 
 function branch_exists () {
@@ -75,19 +80,19 @@ function get_git_status() {
     BRANCH_BEHIND="$(parse_git_behind)"
 
     # Iterate through all the cases and if it matches, then echo
-    if [[ $DIRTY_BRANCH == 1 && $BRANCH_AHEAD == 1 && $BRANCH_BEHIND == 1 ]]; then
+    if [[ "$DIRTY_BRANCH" == 1 && "$BRANCH_AHEAD" == 1 && "$BRANCH_BEHIND" == 1 ]]; then
 	echo "⬢"
-    elif [[ $DIRTY_BRANCH == 1 && $BRANCH_AHEAD == 1 ]]; then
+    elif [[ "$DIRTY_BRANCH" == 1 && "$BRANCH_AHEAD" == 1 ]]; then
 	echo "▲"
-    elif [[ $DIRTY_BRANCH == 1 && $BRANCH_BEHIND == 1 ]]; then
+    elif [[ "$DIRTY_BRANCH" == 1 && "$BRANCH_BEHIND" == 1 ]]; then
 	echo "▼"
-    elif [[ $BRANCH_AHEAD == 1 && $BRANCH_BEHIND == 1 ]]; then
+    elif [[ "$BRANCH_AHEAD" == 1 && "$BRANCH_BEHIND" == 1 ]]; then
 	echo "⬡"
-    elif [[ $BRANCH_AHEAD == 1 ]]; then
+    elif [[ "$BRANCH_AHEAD" == 1 ]]; then
 	echo "△"
-    elif [[ $BRANCH_BEHIND == 1 ]]; then
+    elif [[ "$BRANCH_BEHIND" == 1 ]]; then
 	echo "▽"
-    elif [[ $DIRTY_BRANCH == 1 ]]; then
+    elif [[ "$DIRTY_BRANCH" == 1 ]]; then
 	echo "★"
     fi
 }
@@ -97,14 +102,14 @@ function get_git_info () {
     BRANCH="$(get_git_branch)"
 
     # If there are any branches
-    if [[ $BRANCH != "" ]]; then
+    if [[ "$BRANCH" != "" ]]; then
 	# Echo the branch
-	OUTPUT=$BRANCH
+	OUTPUT="$BRANCH"
 
 	# Add on the git status
-	OUTPUT=$OUTPUT"$(get_git_status)"
+	OUTPUT="$OUTPUT$(get_git_status)"
 
 	# Echo our output
-	echo $OUTPUT
+	echo "$OUTPUT"
     fi
 }
