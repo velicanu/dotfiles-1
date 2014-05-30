@@ -37,10 +37,12 @@ function rootcompileg()
 ####################################################
 function pdftogif()
 {
-    local NAME=$1
-    pdfcrop $NAME "${NAME/%.pdf/}_temp.pdf"
-    convert -density 300 -trim "${NAME/%.pdf/}_temp.pdf" "${NAME/%.pdf/}.gif"
-    rm "${NAME/%.pdf/_temp.pdf}"
+    for NAME in $@
+    do
+	pdfcrop $NAME "${NAME/%.pdf/}_temp.pdf"
+	convert -density 300 -trim "${NAME/%.pdf/}_temp.pdf" "${NAME/%.pdf/}.gif"
+	rm "${NAME/%.pdf/_temp.pdf}"
+    done
 }
 
 
