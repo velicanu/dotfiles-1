@@ -3,9 +3,11 @@ void rootlogon();
 
 void rootlogon()
 {
-  gSystem->Load("libFWCoreFWLite.so");
-  AutoLibraryLoader::enable();
-  //gInterpreter->ExecuteMacro("~/MITStyle.C");
+  TString cmsswbase = getenv("CMSSW_BASE");
+  if (cmsswbase.Length() > 0) {
+    gSystem->Load("libFWCoreFWLite.so");
+    AutoLibraryLoader::enable();
+  }
   setStyle();
 }
 
