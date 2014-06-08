@@ -27,11 +27,11 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
 alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
 
-alias fox_local_backup='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ 192.168.1.6:/mnt/drive/Pictures/Fox/'
-alias fox_remote_backup='rsync -tvrumhk --chmod=o-rwx --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/Fox/'
+alias fox_local_backup='rsync -trumhkP --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ 192.168.1.6:/mnt/drive/Pictures/Fox/'
+alias fox_remote_backup='rsync -trumhkP --chmod=o-rwx --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/Fox/'
 
-alias music_to_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.6:/mnt/drive/Music/'
-alias music_from_pie='rsync -tvrumhk --delete --rsh="ssh -p51001" 192.168.1.6:/mnt/drive/Music/  /home/alex/Music/'
+alias music_to_pie='rsync -trumhkP --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.6:/mnt/drive/Music/'
+alias music_from_pie='rsync -trumhkP --delete --rsh="ssh -p51001" 192.168.1.6:/mnt/drive/Music/  /home/alex/Music/'
 
-alias music_to_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
-alias music_from_moxie='rsync -tvrumhk --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
+alias music_to_moxie='rsync -trumhkP --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
+alias music_from_moxie='rsync -trumhkP --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
