@@ -56,9 +56,9 @@ alias cgate='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X hidsk0001"'
 alias cgate6='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X t2bat0100"'
 alias hibat='ssh -Xt luck@cgate.mit.edu "ssh -X hibat0003"'
 
-alias emcgate='emacs "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"'
-alias emlxplus='emacs /ssh:richard@lxplus.cern.ch:~/'
+alias emcgate='emacsclient -c -a="" "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"'
+alias emlxplus='emacsclient -c -a="" /ssh:richard@lxplus.cern.ch:~/'
 
 alias cms904tunnel='ssh -t richard@lxplus.cern.ch -L 1080:localhost:1085 "ssh -ND 1085 richard@cms904usr"'
-alias emcms='emacs "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'
+alias emcms='emacsclient -c -a="" "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'
 alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -X l1ts-rct-02 \""'

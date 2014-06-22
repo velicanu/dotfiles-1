@@ -9,8 +9,8 @@ source ~/.dotfiles/work_bash
 source ~/.dotfiles/home_bash
 
 # Use emacs for editor
-export EDITOR="emacs -nw"
-export VISUAL="emacs -nw"
+export EDITOR="emacsclient -ct -a=''"
+export VISUAL="emacsclient -ct -a=''"
 
 # PS1
 ##################################################
@@ -33,6 +33,6 @@ alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-ti
 alias la='ls -Ah'
 alias ll='ls -lh'
 
-alias em='emacs'
-alias emn='emacs -nw'
+alias em='emacsclient -nc -a=""'
+alias emn='emacsclient -t -a=""'
 
