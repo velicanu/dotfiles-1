@@ -1,8 +1,8 @@
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message "")
@@ -14,12 +14,14 @@
 (if (< emacs-major-version 23)
     (global-font-lock-mode 1)) 
 
+;; delete trailing whitespace in C and python on save
 (add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+(add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 ;;auxtex settings, for writing LaTex with emacs
 (eval-after-load "tex-mode" '(progn
-(load "auctex.el" nil nil t)
-(load "preview-latex.el" nil nil t))) 
+			       (load "auctex.el" nil nil t)
+			       (load "preview-latex.el" nil nil t))) 
 
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode) 
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
@@ -47,7 +49,7 @@
 
 ;; In text mode use visual line mode (good wrapping)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-;;(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
 
 ;;newline and indent when hitting return in c mode
 (require 'cc-mode)
@@ -66,12 +68,17 @@
   (interactive)
   (if (minibufferp)
       (minibuffer-complete)
-  (if mark-active
-      (indent-region (region-beginning)
-		     (region-end))
-    (if (looking-at "\\_>")
-	(dabbrev-expand nil)
-      (indent-for-tab-command)))))
+    (if mark-active
+	(indent-region (region-beginning)
+		       (region-end))
+      (if (looking-at "\\_>")
+	  (dabbrev-expand nil)
+	(indent-for-tab-command)
+	)
+      )
+    )
+  )
+
 
 ;; open with mouse in dired
 (add-hook 'dired-mode-hook 'my-dired-mode-hook)
@@ -85,7 +92,7 @@
   (flet ((find-file-other-window
           (filename &optional wildcards)
           (find-file filename wildcards)))
-    (dired-mouse-find-file-other-window event)))
+	(dired-mouse-find-file-other-window event)))
 
 ;; turn on paren match highlighting
 (show-paren-mode 1)
@@ -96,8 +103,14 @@
 (delete-selection-mode 1)
 
 ;; display line numbers in margin.
-;(if (>= emacs-major-version 23)
-;    (global-linum-mode 1)) 
+(if (>= emacs-major-version 23)
+    (global-linum-mode 1)) 
+
+;; show buffer list when completing things
+(iswitchb-mode 1)
+
+;; for the hell of it
+(icomplete-mode 1)
 
 ;; use the CUA undo key. Disables suspend in terminal however...
 (global-set-key (kbd "C-z") 'undo)
@@ -108,6 +121,7 @@
 (global-set-key (kbd "M-k") 'next-line)
 (global-set-key (kbd "M-l") 'forward-char)
 
+;; unfill functions, mostly for latex text
 (defun unfill-paragraph ()
   "Replace newline chars in current paragraph by single spaces.
 This command does the inverse of `fill-paragraph'."
@@ -123,4 +137,3 @@ This command does the inverse of `fill-region'."
     (fill-region start end)))
 
 (global-set-key (kbd "C-M-q") 'unfill-region)
-;;(global-set-key (kbd "M-i") 'previous-line)
