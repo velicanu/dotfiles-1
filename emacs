@@ -12,7 +12,7 @@
 
 ;; Turn on syntax highlight for old emacs versions
 (if (< emacs-major-version 23)
-    (global-font-lock-mode 1)) 
+    (global-font-lock-mode 1))
 
 ;; delete trailing whitespace in C and python on save
 (add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
@@ -21,13 +21,13 @@
 ;;auxtex settings, for writing LaTex with emacs
 (eval-after-load "tex-mode" '(progn
 			       (load "auctex.el" nil nil t)
-			       (load "preview-latex.el" nil nil t))) 
+			       (load "preview-latex.el" nil nil t)))
 
-(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode) 
+(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (setq TeX-view-program-list '(("Okular" ("okular --unique %o" (mode-io-correlate "#src:%n%b")))))
-(setq TeX-view-program-selection 
+(setq TeX-view-program-selection
       '((output-pdf "Okular") (output-dvi "Okular")))
 
 ;; make kill/yank behave like copy/paste, using the clipboard
@@ -44,7 +44,7 @@
 (setq frame-title-format "%b - emacs")
 
 ;; Two real spaces for offsets in c code
-(setq c-default-style "bsd" 
+(setq c-default-style "bsd"
       c-basic-offset 2)
 
 ;; In text mode use visual line mode (good wrapping)
@@ -58,26 +58,11 @@
 ;;default to ssh alone for tramp mode
 (setq tramp-default-method "ssh")
 
-;; tab completion!
-(global-set-key [(tab)] 'smart-tab)
-(defun smart-tab ()
-  "This smart tab is minibuffer compliant: it acts as usual in
-    the minibuffer. Else, if mark is active, indents region. Else if
-    point is at the end of a symbol, expands it. Else indents the
-    current line."
-  (interactive)
-  (if (minibufferp)
-      (minibuffer-complete)
-    (if mark-active
-	(indent-region (region-beginning)
-		       (region-end))
-      (if (looking-at "\\_>")
-	  (dabbrev-expand nil)
-	(indent-for-tab-command)
-	)
-      )
-    )
-  )
+(let ((default-directory "~/.dotfiles/emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(require 'smart-tab)
+(global-smart-tab-mode 1)
 
 
 ;; open with mouse in dired
@@ -104,7 +89,7 @@
 
 ;; display line numbers in margin.
 (if (>= emacs-major-version 23)
-    (global-linum-mode 1)) 
+    (global-linum-mode 1))
 
 ;; show buffer list when completing things
 (iswitchb-mode 1)
