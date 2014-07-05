@@ -34,5 +34,5 @@ alias la='ls -Ah'
 alias ll='ls -lh'
 
 alias em='emacsclient -nc -a=""'
-alias emn='emacsclient -t -a=""'
+alias emn='emacs -nw'
 
