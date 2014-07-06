@@ -9,8 +9,8 @@ source ~/.dotfiles/work_bash
 source ~/.dotfiles/home_bash
 
 # Use emacs for editor
-export EDITOR="emacsclient -ct -a=''"
-export VISUAL="emacsclient -ct -a=''"
+export EDITOR="emacs -nw'"
+export VISUAL="emacs -nw"
 
 # PS1
 ##################################################
@@ -35,4 +35,5 @@ alias ll='ls -lh'
 
 alias em='emacsclient -nc -a=""'
 alias emn='emacs -nw'
+alias sudo='sudo '
 
