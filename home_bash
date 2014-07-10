@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # home_bash
 # useful shortcuts for use with my home machines
 alias rm='rm -i'

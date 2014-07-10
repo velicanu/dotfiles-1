@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 # work_bash
 # bash glue for cgate and lxplus 
 ##########################################
@@ -55,9 +56,6 @@ alias lxplus5='ssh -X richard@lxplus5.cern.ch'
 alias cgate='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X hidsk0001"'
 alias cgate6='ssh -Xt luck@portal.cmsaf.mit.edu "ssh -X t2bat0100"'
 alias hibat='ssh -Xt luck@cgate.mit.edu "ssh -X hibat0003"'
-
-alias emcgate='emacsclient -nc -a="" "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"'
-alias emlxplus='emacsclient -nc -a="" /ssh:richard@lxplus.cern.ch:~/'
 
 alias cms904tunnel='ssh -t richard@lxplus.cern.ch -L 1080:localhost:1085 "ssh -ND 1085 richard@cms904usr"'
 alias emcms='emacsclient -nc -a="" "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'

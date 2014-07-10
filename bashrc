@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 #.bashrc
 
 # If the local folder 'bin' exists put it in my path

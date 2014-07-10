@@ -122,3 +122,9 @@ This command does the inverse of `fill-region'."
     (fill-region start end)))
 
 (global-set-key (kbd "C-M-q") 'unfill-region)
+
+
+;; file shortcuts instead of using bash aliases
+;; use C-x r j <register> to get to each one
+(set-register ?c (cons 'file "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"))
+(set-register ?l (cons 'file "/ssh:richard@lxplus.cern.ch:~/"))
