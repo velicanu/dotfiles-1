@@ -1,11 +1,21 @@
 [user]
-	name = R. Alex Barbieri
-	email = luck@mit.edu
-	github = richard-cms
+    name = R. Alex Barbieri
+    email = luck@mit.edu
+    github = richard-cms
 [core]
-	editor = "emacs -nw"
+    editor = "emacs -nw"
 [color]
-	ui = true
-
+    ui = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 [push]
-	default = upstream
+    default = upstream
+[merge]
+    summary = true
