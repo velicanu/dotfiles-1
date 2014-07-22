@@ -28,8 +28,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
 alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
 
-alias fox_local_backup='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ 192.168.1.8:/mnt/drive/Pictures/Fox/'
-alias fox_remote_backup='rsync -trumhkpP --chmod=o-rwx --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/Fox/'
+alias cupid_local_backup='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/cupid/ 192.168.1.8:/mnt/drive/Pictures/cupid/'
+alias cupid_remote_backup='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/cupid/ moxie.no-ip.org:/mnt/drive/Pictures/cupid/'
 
 alias music_to_nuc='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.8:/mnt/drive/Music/'
 alias music_from_nuc='rsync -trumhkpP --delete --rsh="ssh -p51001" 192.168.1.8:/mnt/drive/Music/  /home/alex/Music/'
