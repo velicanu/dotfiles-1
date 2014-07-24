@@ -10,7 +10,7 @@ source ~/.dotfiles/work_bash
 source ~/.dotfiles/home_bash
 
 # Use emacs for editor
-export EDITOR="emacs -nw'"
+export EDITOR="emacs -nw"
 export VISUAL="emacs -nw"
 
 # PS1
