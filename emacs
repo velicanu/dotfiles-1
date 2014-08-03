@@ -58,6 +58,9 @@
 ;;default to ssh alone for tramp mode
 (setq tramp-default-method "ssh")
 
+(let ((default-directory "~/.dotfiles/emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
 ;; turn on paren match highlighting
 (show-paren-mode 1)
 ;; highlight entire bracket expression
@@ -69,8 +72,6 @@
 ;; display line numbers in margin.
 (if (>= emacs-major-version 23)
     (global-linum-mode 1)
-  (let ((default-directory "~/.dotfiles/emacs.d/"))
-    (normal-top-level-add-subdirs-to-load-path))
   (require 'smart-tab)
   (global-smart-tab-mode 1))
 
