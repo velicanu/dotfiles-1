@@ -61,24 +61,6 @@
 (let ((default-directory "~/.dotfiles/emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'smart-tab)
-(global-smart-tab-mode 1)
-
-
-;; open with mouse in dired
-(add-hook 'dired-mode-hook 'my-dired-mode-hook)
-(defun my-dired-mode-hook ()
-  (local-set-key (kbd "<mouse-2>") 'dired-mouse-find-file))
-
-(defun dired-mouse-find-file (event)
-  "In Dired, visit the file or directory name you click on."
-  (interactive "e")
-  (require 'cl)
-  (flet ((find-file-other-window
-          (filename &optional wildcards)
-          (find-file filename wildcards)))
-	(dired-mouse-find-file-other-window event)))
-
 ;; turn on paren match highlighting
 (show-paren-mode 1)
 ;; highlight entire bracket expression
@@ -89,7 +71,9 @@
 
 ;; display line numbers in margin.
 (if (>= emacs-major-version 23)
-    (global-linum-mode 1))
+    (global-linum-mode 1)
+  (require 'smart-tab)
+  (global-smart-tab-mode 1))
 
 ;; show buffer list when completing things
 (iswitchb-mode 1)
