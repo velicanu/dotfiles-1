@@ -1,6 +1,10 @@
 #!/usr/bin/bash
 #.bashrc
 
+# set some nice bash defaults
+shopt -s globstar
+shopt -s histappend
+
 # If the local folder 'bin' exists put it in my path
 [ -d ~/bin ] && export PATH="$PATH:~/bin"
 
@@ -37,4 +41,3 @@ alias ll='ls -lh'
 alias em='emacsclient -nc -a=""'
 alias emn='emacs -nw'
 alias sudo='sudo '
-
