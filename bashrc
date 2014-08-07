@@ -1,9 +1,11 @@
 #!/usr/bin/bash
 #.bashrc
 
-# set some nice bash defaults
+# set some nice history defaults
 shopt -s globstar
 shopt -s histappend
+export HISTFILE=~/.bash_history
+export PROMPT_COMMAND="history -a"
 
 # If the local folder 'bin' exists put it in my path
 [ -d ~/bin ] && export PATH="$PATH:~/bin"
