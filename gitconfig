@@ -19,3 +19,6 @@
     default = upstream
 [merge]
     summary = true
+    tool = ediff
+[mergetool "ediff"]
+    cmd = emacs --eval "\\(ediff-merge-files-with-ancestor \"$LOCAL\" \"$REMOTE\" \"$BASE\" nil \"$MERGED\"\\)"
