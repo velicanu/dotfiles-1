@@ -128,3 +128,4 @@ This command does the inverse of `fill-region'."
 ;; use C-x r j <register> to get to each one
 (set-register ?c (cons 'file "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"))
 (set-register ?l (cons 'file "/ssh:richard@lxplus.cern.ch:~/"))
+(set-register ?n (cons 'file "~/ownCloud/org/notes.org"))
