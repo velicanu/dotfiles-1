@@ -7,13 +7,8 @@ alias duf='du -h --max-depth=1 | sort -h'
 
 # ssh shortcuts
 ####################################################
-alias higmini5='ssh -x 198.125.160.54'
-#alias higmini5='mosh higmini5.lns.mit.edu'
-
 alias nuc='ssh -x 192.168.1.8 -p 51001'
 alias moxie='ssh -x moxie.no-ip.org -p 51001'
-#alias pie='mosh --ssh="ssh -p 51001" --port 51002 192.168.1.6'
-#alias moxie='mosh --ssh="ssh -p 51001" --port 51002 moxie.no-ip.org'
 alias moxie_tunnel='ssh -p 51001 moxie.no-ip.org -L 2000:localhost:8080 -N'
 alias moxie_proxy='ssh -C -p 51001 -D 8888 moxie.no-ip.org -N'
 
@@ -28,11 +23,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
 alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
 
-alias cupid_local_backup='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/cupid/ 192.168.1.8:/mnt/drive/Pictures/cupid/'
-alias cupid_remote_backup='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/cupid/ moxie.no-ip.org:/mnt/drive/Pictures/cupid/'
-
-alias music_to_nuc='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Music/ 192.168.1.8:/mnt/drive/Music/'
-alias music_from_nuc='rsync -trumhkpP --delete --rsh="ssh -p51001" 192.168.1.8:/mnt/drive/Music/  /home/alex/Music/'
+alias fox_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/cupid/'
+alias fox_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Pictures/cupid/ /home/alex/Pictures/Fox/'
 
 alias music_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
 alias music_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'

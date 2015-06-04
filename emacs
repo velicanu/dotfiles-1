@@ -95,16 +95,16 @@
 (iswitchb-mode 1)
 
 ;; for the hell of it
-(icomplete-mode 1)
+;;(icomplete-mode 1)
 
 ;; use the CUA undo key. Disables suspend in terminal however...
 (global-set-key (kbd "C-z") 'undo)
 
 ;; add ergoemacs bindings for cursor movement
-(global-set-key (kbd "M-j") 'backward-char)
-(global-set-key (kbd "M-i") 'previous-line)
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "M-l") 'forward-char)
+;;(global-set-key (kbd "M-j") 'backward-char)
+;;(global-set-key (kbd "M-i") 'previous-line)
+;;(global-set-key (kbd "M-k") 'next-line)
+;;(global-set-key (kbd "M-l") 'forward-char)
 
 ;; unfill functions, mostly for latex text
 (defun unfill-paragraph ()
