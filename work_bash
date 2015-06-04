@@ -3,6 +3,9 @@
 # bash glue for cgate and lxplus 
 ##########################################
 
+# use the local copy of CMSSW instead of always pulling from github
+export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git
+
 # get the CMSSW version for use in the PS1
 #############################################
 function get_CMSSW_version (){

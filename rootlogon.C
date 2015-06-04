@@ -26,31 +26,19 @@ void setStyle()
   gStyle->SetPadTickX(1);
   gStyle->SetPadTickY(1);
 
-  //gStyle->SetTextFont(62);
-  gStyle->SetTextFont(43);
-  //gStyle->SetTextSize(0.02);
-  gStyle->SetTextSize(20);
-  
-  // gStyle->SetLabelFont(42,"XYZ");
-  // gStyle->SetTitleFont(42,"XYZ");
-  gStyle->SetLabelFont(43,"XYZ");
-  gStyle->SetLabelSize(20,"XYZ");
-  gStyle->SetTitleFont(43,"XYZ");
-  gStyle->SetTitleSize(20,"XYZ");
+  //gStyle->SetTextFont(43);
+  //gStyle->SetTextSize(20);
 
+  //gStyle->SetLabelFont(43,"XYZ");
+  //gStyle->SetLabelSize(20,"XYZ");
+  //gStyle->SetTitleFont(43,"XYZ");
+  //gStyle->SetTitleSize(20,"XYZ");
   gStyle->SetTitleColor(1,"XYZ");
 
-  
   gStyle->SetTitleFillColor(0);
   gStyle->SetTitleBorderSize(0);
-  //gStyle->SetTitleXSize(.055);
-  //gStyle->SetTitleYSize(.055);
-  //gStyle->SetTitleXOffset(1.25);
-  //gStyle->SetTitleYOffset(1.75);
   gStyle->SetTitleOffset(1.25,"X");
   gStyle->SetTitleOffset(1.5,"Y");
-  //gStyle->SetLabelSize(0.045,"XYZ");
-  //gStyle->SetLabelSize(0.06,"XYZ");
   gStyle->SetLabelOffset(0.01,"X");
   gStyle->SetLabelOffset(0.01,"Y");
 
@@ -70,16 +58,11 @@ void setStyle()
   gStyle->SetOptStat(0);
 
   gStyle->SetPadLeftMargin(0.15);
-  //gStyle->SetPadLeftMargin(0.3);
   gStyle->SetPadBottomMargin(0.15);
   gStyle->SetPadTopMargin(0.05);
-  //gStyle->SetPadTopMargin(0.10);
-  //gStyle->SetPadRightMargin(0.12);
   gStyle->SetPadRightMargin(0.05);
 
   gStyle->SetLegendBorderSize(0);
-  //gStyle->SetLegendFillColor(0);
-  //gStyle->SetLegendFont(43);
-  
+
   gROOT->ForceStyle();
 }
