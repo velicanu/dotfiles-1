@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # work_bash
-# bash glue for cgate and lxplus 
+# bash glue for cgate and lxplus
 ##########################################
 
 # use the local copy of CMSSW instead of always pulling from github
@@ -63,3 +63,5 @@ alias hibat='ssh -Xt luck@cgate.mit.edu "ssh -X hibat0003"'
 alias cms904tunnel='ssh -t richard@lxplus.cern.ch -L 1080:localhost:1085 "ssh -ND 1085 richard@cms904usr"'
 alias emcms='emacsclient -nc -a="" "/ssh:richard@lxplus.cern.ch|richard@cms904usr|l1ts-rct-02:~/"'
 alias cms904='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cms904usr \" ssh -X l1ts-rct-02 \""'
+
+alias cmsonline='ssh -Xt richard@lxplus.cern.ch "ssh -Xt richard@cmsusr0.cern.ch \" ssh -X cms-kvm-31\""'
