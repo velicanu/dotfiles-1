@@ -6,7 +6,8 @@ void rootlogon()
   TString cmsswbase = getenv("CMSSW_BASE");
   if (cmsswbase.Length() > 0) {
     gSystem->Load("libFWCoreFWLite.so");
-    AutoLibraryLoader::enable();
+    //#include "FWLiteEnabler.h";
+    FWLiteEnabler::enable();
   }
   setStyle();
 }
