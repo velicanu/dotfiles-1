@@ -15,8 +15,8 @@
     (global-font-lock-mode 1))
 
 ;; delete trailing whitespace in C and python on save
-(add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
-(add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+;;(add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+;;(add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 ;;auxtex settings, for writing LaTex with emacs
 (eval-after-load "tex-mode" '(progn
@@ -46,6 +46,8 @@
 ;; Two real spaces for offsets in c code
 (setq c-default-style "bsd"
       c-basic-offset 2)
+;; assume .h files are C++, not C
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
 ;; In text mode use visual line mode (good wrapping)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
@@ -94,17 +96,8 @@
 ;; show buffer list when completing things
 (iswitchb-mode 1)
 
-;; for the hell of it
-;;(icomplete-mode 1)
-
 ;; use the CUA undo key. Disables suspend in terminal however...
 (global-set-key (kbd "C-z") 'undo)
-
-;; add ergoemacs bindings for cursor movement
-;;(global-set-key (kbd "M-j") 'backward-char)
-;;(global-set-key (kbd "M-i") 'previous-line)
-;;(global-set-key (kbd "M-k") 'next-line)
-;;(global-set-key (kbd "M-l") 'forward-char)
 
 ;; unfill functions, mostly for latex text
 (defun unfill-paragraph ()
@@ -122,7 +115,6 @@ This command does the inverse of `fill-region'."
     (fill-region start end)))
 
 (global-set-key (kbd "C-M-q") 'unfill-region)
-
 
 ;; file shortcuts instead of using bash aliases
 ;; use C-x r j <register> to get to each one
