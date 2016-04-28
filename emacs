@@ -118,7 +118,13 @@ This command does the inverse of `fill-region'."
 
 ;; file shortcuts instead of using bash aliases
 ;; use C-x r j <register> to get to each one
-(set-register ?c (cons 'file "/ssh:luck@cgate.cmsaf.mit.edu|hidsk0001:~/"))
+(set-register ?c (cons 'file "/ssh:luck@cgate.mit.edu|hidsk0001:~/"))
 (set-register ?l (cons 'file "/ssh:richard@lxplus.cern.ch:~/"))
 (set-register ?n (cons 'file "~/ownCloud/org/notes.org"))
 (set-register ?o (cons 'file "/ssh:richard@lxplus.cern.ch|cmsusr0.cern.ch|cms-kvm-31:~/"))
+(set-register ?v (cons 'file "/ssh:alex@192.168.56.2:~/"))
+
+;; rust mode for fun
+(add-to-list 'load-path "~/.emacs.d/rust-mode")
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
