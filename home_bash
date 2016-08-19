@@ -8,23 +8,21 @@ alias duf='du -h --max-depth=1 | sort -h'
 # ssh shortcuts
 ####################################################
 alias nuc='ssh -x 192.168.1.8 -p 51001'
-alias moxie='ssh -x moxie.no-ip.org -p 51001'
-alias moxie_tunnel='ssh -p 51001 moxie.no-ip.org -L 2000:localhost:8080 -N'
-alias moxie_proxy='ssh -C -p 51001 -D 8888 moxie.no-ip.org -N'
+alias moxie='ssh -x ikandros.com -p 51001'
+alias moxie_tunnel='ssh -p 51001 ikandros.com -L 2000:localhost:8080 -N'
+alias moxie_proxy='ssh -C -p 51001 -D 8888 ikandros.com -N'
 
 # Things not useful for work
 #############################################
+alias pacman_explicit='comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)'
 
 # Make openjdk have pretty fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # backup scripts
 ###################################################
-alias mount_phone='mkdir -p ~/Nexus4 && go-mtpfs ~/Nexus4 &'
-alias umount_phone='fusermount -u ~/Nexus4 && rmdir ~/Nexus4'
+alias fox_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ ikandros.com:/mnt/drive/Pictures/cupid/'
+alias fox_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" ikandros.com:/mnt/drive/Pictures/cupid/ /home/alex/Pictures/Fox/'
 
-alias fox_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Pictures/Fox/ moxie.no-ip.org:/mnt/drive/Pictures/cupid/'
-alias fox_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Pictures/cupid/ /home/alex/Pictures/Fox/'
-
-alias music_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Music/ moxie.no-ip.org:/mnt/drive/Music/'
-alias music_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" moxie.no-ip.org:/mnt/drive/Music/  /home/alex/Music/'
+alias music_to_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" /home/alex/Music/ ikandros.com:/mnt/drive/Music/'
+alias music_from_moxie='rsync -trumhkpP --delete --rsh="ssh -p51001" ikandros.com:/mnt/drive/Music/  /home/alex/Music/'

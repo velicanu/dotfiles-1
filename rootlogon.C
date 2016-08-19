@@ -7,7 +7,7 @@ void rootlogon()
   if (cmsswbase.Length() > 0) {
     gSystem->Load("libFWCoreFWLite.so");
     //#include "FWLiteEnabler.h";
-    FWLiteEnabler::enable();
+    //FWLiteEnabler::enable();
   }
   setStyle();
 }
