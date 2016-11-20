@@ -12,7 +12,6 @@ export PROMPT_COMMAND="history -a"
 
 # source the split files
 source ~/.dotfiles/git_bash
-source ~/.dotfiles/work_bash
 source ~/.dotfiles/home_bash
 
 # Use emacs for editor
@@ -25,7 +24,7 @@ if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
     PS1="\[\033[01;32m\]\h\
-\[\033[00;35m\]\$(get_CMSSW_version)\
+\[\033[00;35m\]\
 \[\033[01;34m\] \W \
 \[\033[00;35m\]\$(get_git_info)\
 \[\033[01;34m\]\$\[\033[00m\] "
