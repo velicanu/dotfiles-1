@@ -1,12 +1,9 @@
-(add-to-list 'load-path "~/.emacs.d/dtrt-indent")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(dtrt-indent-mode t nil (dtrt-indent))
  '(inhibit-startup-screen t)
  '(initial-scratch-message "")
  '(mouse-scroll-delay 0.5)
@@ -123,9 +120,7 @@ This command does the inverse of `fill-region'."
 ;; use C-x r j <register> to get to each one
 (set-register ?c (cons 'file "/ssh:luck@cgate.mit.edu|hidsk0002:~/"))
 (set-register ?l (cons 'file "/ssh:richard@lxplus.cern.ch:~/"))
-(set-register ?n (cons 'file "~/ownCloud/org/notes.org"))
 (set-register ?o (cons 'file "/ssh:richard@lxplus.cern.ch|cmsusr0.cern.ch|cms-kvm-31:~/"))
-(set-register ?v (cons 'file "/ssh:alex@192.168.56.2:~/"))
 
 ;; rust mode for fun
 (add-to-list 'load-path "~/.emacs.d/rust-mode")
