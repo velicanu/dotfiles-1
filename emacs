@@ -10,25 +10,21 @@
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 1) ((control))))))
 
-;; Turn on syntax highlight for old emacs versions
-(if (< emacs-major-version 23)
-    (global-font-lock-mode 1))
-
 ;; delete trailing whitespace in C and python on save
-;;(add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
-;;(add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+(add-hook 'c-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
+(add-hook 'python-mode-hook (lambda () (add-to-list 'write-file-functions 'delete-trailing-whitespace)))
 
 ;;auxtex settings, for writing LaTex with emacs
-(eval-after-load "tex-mode" '(progn
-			       (load "auctex.el" nil nil t)
-			       (load "preview-latex.el" nil nil t)))
+;;(eval-after-load "tex-mode" '(progn
+;;			       (load "auctex.el" nil nil t)
+;;			       (load "preview-latex.el" nil nil t)))
 
-(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
-(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(setq TeX-view-program-list '(("Okular" ("okular --unique %o" (mode-io-correlate "#src:%n%b")))))
-(setq TeX-view-program-selection
-      '((output-pdf "Okular") (output-dvi "Okular")))
+;;(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+;;(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+;;(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;;(setq TeX-view-program-list '(("Okular" ("okular --unique %o" (mode-io-correlate "#src:%n%b")))))
+;;(setq TeX-view-program-selection
+;;      '((output-pdf "Okular") (output-dvi "Okular")))
 
 ;; make kill/yank behave like copy/paste, using the clipboard
 (global-set-key "\C-w" 'clipboard-kill-region)
@@ -66,7 +62,6 @@
 (require 'smart-tab)
 (global-smart-tab-mode 1)
 
-
 ;; open with mouse in dired
 (add-hook 'dired-mode-hook 'my-dired-mode-hook)
 (defun my-dired-mode-hook ()
@@ -88,10 +83,6 @@
 
 ;; delete seleted text when typing
 (delete-selection-mode 1)
-
-;; display line numbers in margin.
-(if (>= emacs-major-version 23)
-    (global-linum-mode 1))
 
 ;; show buffer list when completing things
 (iswitchb-mode 1)
@@ -121,6 +112,7 @@ This command does the inverse of `fill-region'."
 (set-register ?c (cons 'file "/ssh:luck@cgate.mit.edu|hidsk0002:~/"))
 (set-register ?l (cons 'file "/ssh:richard@lxplus.cern.ch:~/"))
 (set-register ?o (cons 'file "/ssh:richard@lxplus.cern.ch|cmsusr0.cern.ch|cms-kvm-31:~/"))
+(set-register ?m (cons 'file "/ssh:alex@ikandros.com:~/"))
 
 ;; rust mode for fun
 (add-to-list 'load-path "~/.emacs.d/rust-mode")
