@@ -108,7 +108,7 @@ function get_git_info () {
 	OUTPUT="$BRANCH"
 
 	# Add on the git status
-	OUTPUT="$OUTPUT $(get_git_status)"
+	# OUTPUT="$OUTPUT $(get_git_status)"
 
 	# Echo our output
 	echo "$OUTPUT"
